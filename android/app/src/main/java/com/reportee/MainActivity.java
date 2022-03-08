@@ -1,4 +1,4 @@
-package com.reportee;
+package com.cpeasant.reportee;
 
 import com.facebook.react.ReactActivity;
 
