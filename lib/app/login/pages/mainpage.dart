@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reportee/app/register/pages/mainpage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key, this.email = "", this.password = ""})
@@ -84,7 +85,8 @@ class _LoginPageState extends State<LoginPage> {
           emailInput(),
           passwordInput(),
           const Spacer(),
-          submitButton()
+          submitButton(),
+          registerLink()
         ],
       ),
     );
@@ -97,16 +99,16 @@ class _LoginPageState extends State<LoginPage> {
           padding: EdgeInsets.only(top: 40, bottom: 20),
           child: Text(
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               "dailyrundown."),
         ));
   }
 
   Widget emailInput() {
     return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         child: SizedBox(
-          height: 42,
+          height: 52,
           child: TextField(
             controller: _emailTextEditController ?? TextEditingController(),
             decoration: const InputDecoration(
@@ -115,16 +117,16 @@ class _LoginPageState extends State<LoginPage> {
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 0, horizontal: 15)),
             style: const TextStyle(
-                fontSize: 14, height: 1.3, color: Color(0xFF000000)),
+                fontSize: 20, height: 1.3, color: Color(0xFF000000)),
           ),
         ));
   }
 
   Widget passwordInput() {
     return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         child: SizedBox(
-          height: 42,
+          height: 52,
           child: TextField(
             obscureText: true,
             enableSuggestions: false,
@@ -136,26 +138,47 @@ class _LoginPageState extends State<LoginPage> {
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 0, horizontal: 15)),
             style: const TextStyle(
-                fontSize: 14, height: 1.3, color: Color(0xFF000000)),
+                fontSize: 20, height: 1.3, color: Color(0xFF000000)),
           ),
         ));
   }
 
   Widget submitButton() {
     return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 0),
         child: ElevatedButton(
             onPressed: () {
-              debugPrint("email: ${_emailTextEditController?.text}");
+              debugPrint("login detected");
             },
             style: ElevatedButton.styleFrom(
               alignment: Alignment.center,
               primary: const Color(0xFF3479FF),
-              minimumSize: const Size.fromHeight(42),
+              minimumSize: const Size.fromHeight(52),
             ),
             child: const Text(
               "LOGIN",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 20, fontWeight: FontWeight.bold, letterSpacing: 2),
+            )));
+  }
+
+  Widget registerLink() {
+    return Padding(
+        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 15, top: 5),
+        child: TextButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const RegisterPage()));
+            },
+            style: TextButton.styleFrom(
+                alignment: Alignment.center,
+                minimumSize: const Size.fromHeight(42)),
+            child: const Text(
+              "REGISTER",
+              style: TextStyle(
+                  fontSize: 20, fontWeight: FontWeight.bold, letterSpacing: 2),
             )));
   }
 }
