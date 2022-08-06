@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:reportee/app/login/pages/mainpage.dart';
+import 'package:reportee/app/dashboard/pages/mainpage.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage(
@@ -174,7 +174,10 @@ class _RegisterPage extends State<RegisterPage> {
         padding: const EdgeInsets.only(left: 20, right: 20, bottom: 0),
         child: ElevatedButton(
             onPressed: () {
-              debugPrint("register detected");
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const DashboardPage()));
             },
             style: ElevatedButton.styleFrom(
               alignment: Alignment.center,

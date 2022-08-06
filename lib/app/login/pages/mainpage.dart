@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reportee/app/dashboard/pages/mainpage.dart';
 import 'package:reportee/app/register/pages/mainpage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -148,7 +149,10 @@ class _LoginPageState extends State<LoginPage> {
         padding: const EdgeInsets.only(left: 20, right: 20, bottom: 0),
         child: ElevatedButton(
             onPressed: () {
-              debugPrint("login detected");
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const DashboardPage()));
             },
             style: ElevatedButton.styleFrom(
               alignment: Alignment.center,
